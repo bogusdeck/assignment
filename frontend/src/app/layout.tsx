@@ -9,8 +9,8 @@ const vt323 = VT323({
 });
 
 export const metadata = {
-  title: "TODO",
-  description: "Minimal Todo App",
+  title: "TaskBoy",
+  description: "A minimal terminal-style task manager",
 };
 
 export default function RootLayout({
