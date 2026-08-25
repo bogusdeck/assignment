@@ -163,10 +163,10 @@ export default function Dashboard() {
       <div className="relative flex flex-col justify-between min-h-screen p-4 sm:p-8 text-xl sm:text-2xl tracking-wide w-full overflow-hidden">
 
         {/* TOP LEFT (LOGO + TITLE) */}
-        <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6 mt-4 z-10 w-full">
+        <div className="flex flex-col sm:flex-row items-center sm:items-center gap-4 sm:gap-6 mt-4 z-10 w-full">
           <img src="/logo.png" alt="Logo" className="w-12 sm:w-16 md:w-20" style={{ imageRendering: 'pixelated' }} />
-          <div className="overflow-hidden w-full">
-            <pre className="text-purple-400 font-bold text-[4px] min-[400px]:text-[5px] sm:text-[7px] md:text-[9px] lg:text-xs leading-none m-0">
+          <div className="overflow-hidden w-full flex justify-center sm:justify-start">
+            <pre className="text-purple-400 font-bold text-[4px] min-[400px]:text-[5px] sm:text-[7px] md:text-[9px] lg:text-xs leading-none m-0 text-center sm:text-left">
 {`████████╗ █████╗ ███████╗██╗  ██╗██████╗  ██████╗ ██╗   ██╗
 ╚══██╔══╝██╔══██╗██╔════╝██║ ██╔╝██╔══██╗██╔═══██╗╚██╗ ██╔╝
    ██║   ███████║███████╗█████╔╝ ██████╔╝██║   ██║ ╚████╔╝ 
@@ -313,10 +313,10 @@ export default function Dashboard() {
 
   return (
     <div className="w-full max-w-[1800px] mx-auto p-4 md:p-8 lg:p-12 text-base sm:text-xl">
-      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 sm:mb-8 border-b-2 border-purple-400 pb-4 gap-4">
-        <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6">
+      <div className="flex flex-col sm:flex-row justify-between items-center sm:items-center mb-6 sm:mb-8 border-b-2 border-purple-400 pb-4 gap-4">
+        <div className="flex flex-col sm:flex-row items-center sm:items-center gap-4 sm:gap-6 w-full sm:w-auto">
           <img src="/logo.png" alt="Logo" className="w-12 sm:w-16 md:w-20" style={{ imageRendering: 'pixelated' }} />
-          <div className="overflow-hidden w-full">
+          <div className="overflow-hidden w-full flex justify-center sm:justify-start">
             <pre className="text-purple-400 font-bold text-[3px] min-[400px]:text-[4.5px] sm:text-[6px] md:text-[8px] lg:text-[10px] leading-none m-0">
 {`██████╗  █████╗ ███████╗██╗  ██╗██████╗  ██████╗  █████╗ ██████╗ ██████╗
 ██╔══██╗██╔══██╗██╔════╝██║  ██║██╔══██╗██╔═══██╗██╔══██╗██╔══██╗██╔══██╗
@@ -493,8 +493,8 @@ export default function Dashboard() {
             <div className="flex justify-between items-start border-b border-purple-400/30 pb-4 mb-4">
               <div>
                 <h2 className="text-3xl sm:text-4xl uppercase font-bold text-purple-400">-- OLD TASKS --</h2>
-                <div className="mt-4 flex items-center gap-2">
-                  <span className="text-white/70 text-lg">Hide tasks older than</span>
+                <div className="mt-4 flex flex-wrap items-center gap-2">
+                  <span className="text-white/70 text-base sm:text-lg">Hide tasks older than</span>
                   <input
                     type="number"
                     min="1"

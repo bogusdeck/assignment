@@ -81,25 +81,27 @@ export default function DitheredPlanet() {
       }
     }
 
+    const scale = window.innerWidth < 768 ? 0.5 : 1;
+    
     const planet = {
       x: SW * 0.5,
       y: SH * 0.515,
-      radius: 96
+      radius: 96 * scale
     };
 
     const orbits = [
-      { rx: 84, ry: 27, rot: -0.14 },
-      { rx: 102, ry: 36, rot:  0.05 },
-      { rx: 122, ry: 45, rot:  0.12 },
-      { rx: 142, ry: 56, rot: -0.04 },
-      { rx: 165, ry: 68, rot:  0.025 }
+      { rx: 84 * scale, ry: 27 * scale, rot: -0.14 },
+      { rx: 102 * scale, ry: 36 * scale, rot:  0.05 },
+      { rx: 122 * scale, ry: 45 * scale, rot:  0.12 },
+      { rx: 142 * scale, ry: 56 * scale, rot: -0.04 },
+      { rx: 165 * scale, ry: 68 * scale, rot:  0.025 }
     ];
 
     const moons = Array.from({ length: 9 }, (_, i) => ({
       orbit: i % orbits.length,
       angle: Math.random() * Math.PI * 2,
       speed: (0.00020 + Math.random() * 0.00034) * (Math.random() < 0.5 ? -1 : 1),
-      size: 1.5 + Math.random() * 2.5,
+      size: (1.5 + Math.random() * 2.5) * scale,
       seed: Math.random() * 5000
     }));
 
@@ -270,34 +272,28 @@ export default function DitheredPlanet() {
         if (item.position.z >= 0) drawMoon(item.moon, item.position);
       }
 
-      ctx!.clearRect(0, 0, canvas!.width, canvas!.height);
+      ctx!.clearRect(0, 0, SW, SH);
       ctx!.imageSmoothingEnabled = false;
-      ctx!.drawImage(buffer, 0, 0, canvas!.width, canvas!.height);
+      ctx!.drawImage(buffer, 0, 0, SW, SH);
       animId = requestAnimationFrame(renderLoop);
     }
 
-    function resize() {
-      const dpr = Math.min(window.devicePixelRatio || 1, 2);
-      if (canvas) {
-        canvas.width = Math.max(1, Math.floor(window.innerWidth * dpr));
-        canvas.height = Math.max(1, Math.floor(window.innerHeight * dpr));
-        ctx!.imageSmoothingEnabled = false;
-      }
-    }
-
-    window.addEventListener("resize", resize);
-    resize();
     animId = requestAnimationFrame(renderLoop);
 
     return () => {
-      window.removeEventListener("resize", resize);
       cancelAnimationFrame(animId);
     };
   }, []);
 
   return (
-    <div className="absolute inset-0 w-full h-full overflow-hidden pointer-events-none z-0">
-      <canvas ref={canvasRef} className="absolute inset-0 w-full h-full" style={{ imageRendering: 'pixelated' }} />
+    <div className="absolute inset-0 w-full h-full overflow-hidden pointer-events-none z-0 bg-[#050505]">
+      <canvas 
+        ref={canvasRef} 
+        width={640} 
+        height={360} 
+        className="w-full h-full object-cover" 
+        style={{ imageRendering: 'pixelated' }} 
+      />
     </div>
   );
 }
