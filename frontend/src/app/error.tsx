@@ -1,5 +1,5 @@
 'use client'
- 
+
 import { useEffect } from 'react'
 import Link from 'next/link'
 import DitheredPlanet from '@/components/DitheredPlanet'
@@ -15,7 +15,7 @@ export default function Error({
     // Log the error to an error reporting service
     console.error(error)
   }, [error])
- 
+
   return (
     <>
       <div className="fixed inset-0 bg-black z-0">
@@ -28,9 +28,9 @@ export default function Error({
         <h2 className="text-2xl sm:text-4xl text-purple-400 mb-8 uppercase tracking-widest">
           ERR: SYSTEM_OVERLOAD
         </h2>
-        
+
         <p className="text-white/70 text-lg sm:text-2xl max-w-xl mb-12">
-          &gt; A severe error has occurred in the mainframe. 
+          &gt; A severe error has occurred in the mainframe.
           Please attempt a system reboot to clear the memory banks.
         </p>
 
@@ -41,9 +41,9 @@ export default function Error({
           >
             [ INITIATE_REBOOT ]
           </button>
-          
-          <Link 
-            href="/" 
+
+          <Link
+            href="/"
             className="px-8 py-4 border-2 border-purple-400 bg-black/40 backdrop-blur-md text-purple-400 hover:bg-purple-400 hover:text-black transition-colors text-xl sm:text-2xl font-bold uppercase"
           >
             [ RETURN_TO_BASE ]

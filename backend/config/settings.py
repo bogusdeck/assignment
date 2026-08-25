@@ -101,4 +101,4 @@ REST_FRAMEWORK = {
     ],
 }
 
-JWT_SECRET = os.getenv("NEXTAUTH_SECRET", "test-secret")
+JWT_SECRET = os.getenv("NEXTAUTH_SECRET", "mewowmowmowmowmowomowmwoomwomwo")

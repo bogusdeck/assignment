@@ -14,14 +14,14 @@ export default function NotFound() {
         <h2 className="text-2xl sm:text-4xl text-purple-400 mb-8 uppercase tracking-widest">
           ERR: SECTOR_NOT_FOUND
         </h2>
-        
+
         <p className="text-white/70 text-lg sm:text-2xl max-w-xl mb-12">
-          &gt; The coordinates you entered do not exist in this database. 
+          &gt; The coordinates you entered do not exist in this database.
           The data may have been corrupted or permanently deleted.
         </p>
 
-        <Link 
-          href="/" 
+        <Link
+          href="/"
           className="px-8 py-4 border-2 border-purple-400 bg-black/40 backdrop-blur-md text-purple-400 hover:bg-purple-400 hover:text-black transition-colors text-xl sm:text-3xl font-bold uppercase"
         >
           [ RETURN_TO_BASE ]

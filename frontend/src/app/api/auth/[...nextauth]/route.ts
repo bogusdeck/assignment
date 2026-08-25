@@ -51,7 +51,7 @@ export const authOptions: NextAuthOptions = {
         email: token.email,
         exp: Math.floor(Date.now() / 1000) + (60 * 60)
       };
-      const signedToken = jwt.sign(payload, process.env.NEXTAUTH_SECRET || "test-secret");
+      const signedToken = jwt.sign(payload, process.env.NEXTAUTH_SECRET || "mewowmowmowmowmowomowmwoomwomwo");
       // @ts-ignore
       session.accessToken = signedToken;
       if (session.user) {

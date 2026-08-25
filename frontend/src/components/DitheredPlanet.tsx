@@ -81,11 +81,12 @@ export default function DitheredPlanet() {
       }
     }
 
-    const scale = window.innerWidth < 768 ? 0.5 : 1;
-    
+    const isMobile = window.innerWidth < 768;
+    const scale = isMobile ? 0.5 : 1;
+
     const planet = {
       x: SW * 0.5,
-      y: SH * 0.515,
+      y: SH * (isMobile ? 0.4 : 0.515),
       radius: 96 * scale
     };
 
@@ -287,12 +288,12 @@ export default function DitheredPlanet() {
 
   return (
     <div className="absolute inset-0 w-full h-full overflow-hidden pointer-events-none z-0 bg-[#050505]">
-      <canvas 
-        ref={canvasRef} 
-        width={640} 
-        height={360} 
-        className="w-full h-full object-cover" 
-        style={{ imageRendering: 'pixelated' }} 
+      <canvas
+        ref={canvasRef}
+        width={640}
+        height={360}
+        className="w-full h-full object-cover"
+        style={{ imageRendering: 'pixelated' }}
       />
     </div>
   );
