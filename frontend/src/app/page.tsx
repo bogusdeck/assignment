@@ -70,7 +70,12 @@ export default function Dashboard() {
           last_name: lastName
         })
       });
-      const data = await res.json();
+      let data;
+      try {
+        data = await res.json();
+      } catch (parseError) {
+        throw new Error(`Server returned ${res.status} (non-JSON). Check backend logs.`);
+      }
       if (!res.ok) throw new Error(data.error || 'Registration failed');
       await signIn("credentials", { email, password, redirect: false });
     } catch (err: any) {
