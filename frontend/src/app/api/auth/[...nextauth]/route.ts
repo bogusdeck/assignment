@@ -18,7 +18,8 @@ export const authOptions: NextAuthOptions = {
           const res = await fetch(url, {
             method: 'POST',
             body: JSON.stringify(credentials),
-            headers: { "Content-Type": "application/json" }
+            headers: { "Content-Type": "application/json" },
+            cache: 'no-store'
           })
           
           console.log("NEXTAUTH AUTHORIZE: Response status", res.status);
@@ -28,7 +29,7 @@ export const authOptions: NextAuthOptions = {
           if (res.ok) {
             const user = JSON.parse(responseText);
             return {
-              id: user.id,
+              id: user.id.toString(),
               email: user.email,
               first_name: user.first_name,
               last_name: user.last_name
