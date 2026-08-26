@@ -2,11 +2,13 @@
 
 A minimal, terminal-themed task management system.
 
+**Live Demo**: [https://taskboy.vercel.app/](https://taskboy.vercel.app/)
+
 ## Tech Stack
 - **Frontend**: Next.js (App Router, React)
 - **Backend**: Django (Python, Django REST Framework)
 - **Database**: PostgreSQL (via Supabase) / SQLite (local fallback)
-- **Styling**: Tailwind CSS. I used an LLM to help rapidly generate the CSS components, choosing Tailwind over pure CSS because it allows for much faster development and iteration of the retro aesthetic.
+- **Styling**: Tailwind CSS. I chose Tailwind over pure CSS because it allows for much faster development and rapid iteration of the retro terminal aesthetic.
 
 ## Custom Authentication System
 Taskboy uses a completely custom, stateless authentication system bridging Next.js and Django:
