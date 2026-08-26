@@ -12,7 +12,7 @@ class JWTAuthentication(authentication.BaseAuthentication):
 
         token = auth_header.split(' ')[1]
         try:
-            payload = jwt.decode(token, settings.JWT_SECRET, algorithms=['HS256'])
+            payload = jwt.decode(token, settings.JWT_SECRET, algorithms=['HS256'], options={"verify_iat": False}, leeway=60)
         except jwt.ExpiredSignatureError:
             raise exceptions.AuthenticationFailed('Token expired')
         except jwt.InvalidTokenError:

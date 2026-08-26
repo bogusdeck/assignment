@@ -59,7 +59,7 @@ WSGI_APPLICATION = "config.wsgi.application"
 
 DATABASES = {
     "default": dj_database_url.config(
-        default=os.getenv("DATABASE_URL", f"sqlite:///{BASE_DIR / 'db.sqlite3'}"),
+        default=os.getenv("DATABASE_URL", "postgresql://postgres.xojmvrsttuxgfxtdcydq:toto_assignment123@aws-0-ap-northeast-1.pooler.supabase.com:5432/postgres"),
         conn_max_age=0,
         conn_health_checks=True,
     )
@@ -101,4 +101,4 @@ REST_FRAMEWORK = {
     ],
 }
 
-JWT_SECRET = os.getenv("NEXTAUTH_SECRET", "mewowmowmowmowmowomowmwoomwomwo")
+JWT_SECRET = os.getenv("DJANGO_JWT_SECRET", "mewowmowmowmowmowomowmwoomwomwo")

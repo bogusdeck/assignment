@@ -11,21 +11,34 @@ export const authOptions: NextAuthOptions = {
         password: { label: "Password", type: "password" }
       },
       async authorize(credentials) {
-        const res = await fetch((process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000/api') + '/auth/login/', {
-          method: 'POST',
-          body: JSON.stringify(credentials),
-          headers: { "Content-Type": "application/json" }
-        })
-        const user = await res.json()
-        if (res.ok && user) {
-          return {
-            id: user.id,
-            email: user.email,
-            first_name: user.first_name,
-            last_name: user.last_name
-          } as any
+        try {
+          const url = (process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000/api') + '/auth/login/';
+          console.log("NEXTAUTH AUTHORIZE: Fetching from", url);
+          
+          const res = await fetch(url, {
+            method: 'POST',
+            body: JSON.stringify(credentials),
+            headers: { "Content-Type": "application/json" }
+          })
+          
+          console.log("NEXTAUTH AUTHORIZE: Response status", res.status);
+          const responseText = await res.text();
+          console.log("NEXTAUTH AUTHORIZE: Response body", responseText);
+          
+          if (res.ok) {
+            const user = JSON.parse(responseText);
+            return {
+              id: user.id,
+              email: user.email,
+              first_name: user.first_name,
+              last_name: user.last_name
+            } as any
+          }
+          return null
+        } catch (error) {
+          console.error("NEXTAUTH AUTHORIZE ERROR:", error);
+          return null;
         }
-        return null
       }
     })
   ],
@@ -51,7 +64,7 @@ export const authOptions: NextAuthOptions = {
         email: token.email,
         exp: Math.floor(Date.now() / 1000) + (60 * 60)
       };
-      const signedToken = jwt.sign(payload, process.env.NEXTAUTH_SECRET || "mewowmowmowmowmowomowmwoomwomwo");
+      const signedToken = jwt.sign(payload, process.env.DJANGO_JWT_SECRET || "mewowmowmowmowmowomowmwoomwomwo");
       // @ts-ignore
       session.accessToken = signedToken;
       if (session.user) {
