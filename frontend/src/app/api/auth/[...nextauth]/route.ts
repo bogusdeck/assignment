@@ -12,7 +12,8 @@ export const authOptions: NextAuthOptions = {
       },
       async authorize(credentials) {
         try {
-          const url = (process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000/api') + '/auth/login/';
+          const baseUrl = process.env.NODE_ENV === 'production' ? 'https://taskboy-api.vercel.app/api' : 'http://localhost:8000/api';
+          const url = baseUrl + '/auth/login/';
           console.log("NEXTAUTH AUTHORIZE: Fetching from", url);
           
           const res = await fetch(url, {

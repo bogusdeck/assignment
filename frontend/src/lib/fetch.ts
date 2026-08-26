@@ -1,6 +1,6 @@
 import { getSession } from 'next-auth/react';
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000/api';
+const API_URL = process.env.NODE_ENV === 'production' ? 'https://taskboy-api.vercel.app/api' : 'http://localhost:8000/api';
 
 export async function fetchWithAuth(endpoint: string, options: RequestInit = {}) {
   const session: any = await getSession();
