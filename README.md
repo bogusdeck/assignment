@@ -50,3 +50,7 @@ DEBUG=True
 NEXTAUTH_SECRET=mewowmowmowmowmowomowmwoomwomwo
 ALLOWED_ORIGINS=http://localhost:3000,https://taskboy.vercel.app
 ```
+
+## Vercel Hosting Notes
+- We are using secrets as fallback values directly within the codebase due to some issues with environment variables during Vercel hosting.
+- Extra files have been added to the repository in accordance with Vercel's hosting guidelines.
