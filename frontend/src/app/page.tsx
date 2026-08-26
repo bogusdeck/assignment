@@ -338,12 +338,14 @@ export default function Dashboard() {
               className="bg-transparent border border-white/30 focus:border-purple-400 p-3 outline-none w-full transition-colors text-white placeholder-white/40"
               placeholder="TITLE..."
               value={title}
+              maxLength={100}
               onChange={e => setTitle(e.target.value)}
             />
             <textarea
               className="bg-transparent border border-white/30 focus:border-purple-400 p-3 outline-none h-32 w-full resize-none transition-colors text-white placeholder-white/40"
               placeholder="DESC..."
               value={description}
+              maxLength={200}
               onChange={e => setDescription(e.target.value)}
             />
             <div className="flex border border-white/30 p-1 bg-black w-full">
@@ -584,12 +586,14 @@ export default function Dashboard() {
             className="bg-transparent border border-white/30 focus:border-purple-400 p-3 outline-none w-full transition-colors text-white placeholder-white/40"
             placeholder="TITLE..."
             value={title}
+            maxLength={100}
             onChange={e => setTitle(e.target.value)}
           />
           <textarea
             className="bg-transparent border border-white/30 focus:border-purple-400 p-3 outline-none h-32 w-full resize-none transition-colors text-white placeholder-white/40"
             placeholder="DESC..."
             value={description}
+            maxLength={200}
             onChange={e => setDescription(e.target.value)}
           />
           <div className="flex border border-white/30 p-1 bg-black w-full">
