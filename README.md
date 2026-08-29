@@ -55,7 +55,7 @@ ALLOWED_ORIGINS=http://localhost:3000,https://taskboy.vercel.app
 - We are using secrets as fallback values directly within the codebase due to some issues with environment variables during Vercel hosting.
 - Extra files have been added to the repository in accordance with Vercel's hosting guidelines.
 
-
+```
 ┌─────────────────────────────────────────────────────────────────────┐
 │                        REGISTER FLOW                                │
 └─────────────────────────────────────────────────────────────────────┘
@@ -174,3 +174,4 @@ ALLOWED_ORIGINS=http://localhost:3000,https://taskboy.vercel.app
        │
        ▼
   Dashboard shows login/register UI
+```
